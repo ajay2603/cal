@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Simple Calculator made for fun.">
+    <meta name="author" content="Jampana Atchuta Rama Raju">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <title>Calculator</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">
+    <style>
+        body {
+            padding-top: 20px;
+            padding-bottom: 10px;
+            background-color: #C4DFDF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .txtarea {
+            margin-top: 10px;
+            width: 221px;
+            height: 55px;
+            font-family: 'Roboto Mono', monospace;
+            text-align: right;
+            padding: 5px;
+            margin-bottom: 10px;
+            font-size: 30px;
+            background-color: #F1F6F9;
+            border-radius: 8px;
+            border-style: none;
+        }
+        
+        .body {
+            width: max-content;
+            height: 90%;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: #9DB2BF;
+        }
+        
+        .buttons {
+            padding: 2% 0%
+        }
+        
+        .button {
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 5px;
+            margin: 2px;;
+            font-size: 30px;
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #C4DFDF;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .button:hover {
+            cursor: pointer;
+            color: whitesmoke;
+        }
+
+        .pressed{
+            box-shadow: 1px 1px 2px 2px #5c6574;
+        }
+        
+        #c {
+            background-color: rgb(250, 78, 78);
+            color: antiquewhite;
+        }
+        
+        #c:hover {
+            color: black;
+        }
+        
+        #bs {
+            background-color: rgb(211, 90, 255);
+            color: antiquewhite;
+            font-size: 25px;
+        }
+        
+        #bs:hover {
+            color: black;
+        }
+        
+        #bl {
+            background-color: rgb(0, 110, 255);
+            color: antiquewhite;
+        }
+        
+        #bl:hover {
+            color: black;
+        }
+        
+        #br {
+            background-color: rgb(0, 110, 255);
+            color: antiquewhite;
+        }
+        
+        #br:hover {
+            color: black;
+        }
+        
+        #sl {
+            background-color: rgb(252, 152, 1);
+            color: antiquewhite;
+        }
+        
+        #sl:hover {
+            color: black;
+        }
+        
+        #x {
+            background-color: rgb(252, 152, 1);
+            color: antiquewhite;
+        }
+        
+        #x:hover {
+            color: black;
+        }
+        
+        #mi {
+            background-color: rgb(252, 152, 1);
+            color: antiquewhite;
+        }
+        
+        #mi:hover {
+            color: black;
+        }
+        
+        #pl {
+            background-color: rgb(252, 152, 1);
+            color: antiquewhite;
+        }
+        
+        #pl:hover {
+            color: black;
+        }
+        
+        #eq {
+            background-color: #03da59;
+            color: antiquewhite;
+        }
+        
+        #eq:hover {
+            color: black;
+        }
+    </style>
+  </head>
+
+  <body class="text-center">
+    <div class="body">
+        <input type="text" class="txtarea" disabled>
+        <div class="buttons">
+            <button id="c" class="button" onclick="clr(); buttonAnimation(this.id)">C</button>
+            <button id="bs" class="button" onclick="back(); buttonAnimation(this.id)">⌫</button>
+            <button id="bl" class="button" onclick="insert('&#40;'); buttonAnimation(this.id)">(</button>
+            <button id="br" class="button" onclick="insert('&#41;'); buttonAnimation(this.id)">)</button>
+        </div>
+        <div class="buttons">
+            <button id="n7" class="button" onclick="insert('7'); buttonAnimation(this.id)">7</button>
+            <button id="n8" class="button" onclick="insert('8'); buttonAnimation(this.id)">8</button>
+            <button id="n9" class="button" onclick="insert('9'); buttonAnimation(this.id)">9</button>
+            <button id="sl" class="button" onclick="insert('/'); buttonAnimation(this.id)">/</button>
+        </div>
+        <div class="buttons">
+            <button id="n4" class="button" onclick="insert('4'); buttonAnimation(this.id)">4</button>
+            <button id="n5" class="button" onclick="insert('5'); buttonAnimation(this.id)">5</button>
+            <button id="n6" class="button" onclick="insert('6'); buttonAnimation(this.id)">6</button>
+            <button id="x" class="button" onclick="insert('X'); buttonAnimation(this.id)">x</button>
+        </div>
+        <div class="buttons">
+            <button id="n1" class="button" onclick="insert('1'); buttonAnimation(this.id)">1</button>
+            <button id="n2" class="button" onclick="insert('2'); buttonAnimation(this.id)">2</button>
+            <button id="n3" class="button" onclick="insert('3'); buttonAnimation(this.id)">3</button>
+            <button id="mi" class="button" onclick="insert('-'); buttonAnimation(this.id)">-</button>
+        </div>
+        <div class="buttons">
+            <button id="do" class="button" onclick="insert('.'); buttonAnimation(this.id)">.</button>
+            <button id="n0" class="button" onclick="insert('0'); buttonAnimation(this.id)">0</button>
+            <button id="pl" class="button" onclick="insert('+'); buttonAnimation(this.id)">+</button>
+            <button id="eq" class="button" onclick="cal(); buttonAnimation(this.id)">=</button>
+        </div>
+    </div>
+
+    <script>
+        function insert(chr) {
+            var txt = document.querySelector('.txtarea');
+            txt.value += chr;
+        }
+        
+        function back() {
+            var txt = document.querySelector('.txtarea');
+            var txtval = txt.value;
+            var newtxt = txtval.slice(0, -1);
+            txt.value = newtxt;
+        }
+        
+        function clr() {
+            var txt = document.querySelector('.txtarea');
+            txt.value = "";
+        }
+        
+        function cal() {
+            var txt = document.querySelector('.txtarea');
+            var expression = txt.value;
+            expression = expression.replace(/X/g, '*');
+            try {
+                var result = eval(expression);
+                txt.value = result;
+            } catch (error) {
+                txt.value = "Invalid Syntax";
+            }
+        }
+        var buts = ['0','1','2','3','4','5','6','7','8','9','+','-','/','*','X','x','(',')','.'];
+        var muls =['*','X','x'];
+        var accoc = {'+':"pl","-":"mi","(":"bl",")":"br","*":"x","x":"x","X":"x","/":"sl",".":"do"};
+        document.addEventListener('keydown', function(event){
+            if(event.key=="Backspace"){
+                buttonAnimation("bs");
+                back();
+            }
+            else if(event.key=="Enter" || event.key=="="){
+                buttonAnimation("eq");
+                cal();
+            }
+            else if(event.key=="c" || event.key=="C"){
+                buttonAnimation('c');
+                clr();
+            }
+            else if(buts.includes(event.key)){
+                if(muls.includes(event.key)){
+                    buttonAnimation('x');
+                    insert('X');
+                }
+                else{
+                    if(event.key in accoc){
+                    buttonAnimation(accoc[event.key]);
+                    }
+                    else{
+                        buttonAnimation('n'+event.key);
+                    }
+                    insert(event.key);
+                }
+            }
+        });
+
+        function buttonAnimation(currentKey) {
+        var activeButton = document.querySelector("#" + currentKey);
+        activeButton.classList.add("pressed");
+        setTimeout(function() {
+        activeButton.classList.remove("pressed");
+        }, 80);
+        }
+    </script>
+  </body>
+</html>
